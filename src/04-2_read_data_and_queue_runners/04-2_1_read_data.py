@@ -7,13 +7,15 @@
  Time: 오후 8:01
 """
 
+from src import config
+
 import tensorflow as tf
 import numpy as np
 
 tf.set_random_seed(777)
 
 # Load data
-xy = np.loadtxt("../../dataset/data-01-test-score.csv", delimiter=',', dtype=np.float32)
+xy = np.loadtxt(config.DATASET["test_score"], delimiter=',', dtype=np.float32)
 x_data = xy[:, 0:-1]
 y_data = xy[:, [-1]]
 

@@ -7,12 +7,14 @@
  Time: 오후 8:33
 """
 
+from src import config
+
 import tensorflow as tf
 
 tf.set_random_seed(777)
 
 # Load data
-filename_queue = tf.train.string_input_producer(["../../dataset/data-01-test-score.csv"],  # 이 때, 다수의 파일이 들어갈 수 있음
+filename_queue = tf.train.string_input_producer([config.DATASET["test_score"]],  # 이 때, 다수의 파일이 들어갈 수 있음
                                                 shuffle=False,
                                                 name="filename_queue")
 
