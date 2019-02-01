@@ -11,12 +11,13 @@ import random
 import tensorflow as tf
 import matplotlib.pyplot as plt
 
+from src import config
 from tensorflow.examples.tutorials.mnist import input_data
 
 tf.set_random_seed(777)
 
 # Data
-mnist = input_data.read_data_sets("MNIST_data/", one_hot=True)
+mnist = input_data.read_data_sets(config.DATASET["MNIST"], one_hot=True)
 
 # Params
 nb_classes = 10
