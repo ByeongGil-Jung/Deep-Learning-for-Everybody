@@ -19,7 +19,7 @@ tf.set_random_seed(777)
 mnist = input_data.read_data_sets(config.DATASET["MNIST"], one_hot=True)
 
 # Params
-lr = 1e-4
+lr = 1e-3
 training_epochs = 15
 batch_size = 100
 batch_iter = int(mnist.train.num_examples / batch_size)
@@ -92,23 +92,23 @@ with tf.Session() as sess:
 
 """
 Training started ...
-Epoch : 0000, Cost : 0.589025202
-Epoch : 0001, Cost : 0.206178796
-Epoch : 0002, Cost : 0.146397329
-Epoch : 0003, Cost : 0.113145360
-Epoch : 0004, Cost : 0.091936346
-Epoch : 0005, Cost : 0.076891749
-Epoch : 0006, Cost : 0.062801794
-Epoch : 0007, Cost : 0.053949069
-Epoch : 0008, Cost : 0.044355554
-Epoch : 0009, Cost : 0.038380818
-Epoch : 0010, Cost : 0.031765649
-Epoch : 0011, Cost : 0.025707025
-Epoch : 0012, Cost : 0.021089061
-Epoch : 0013, Cost : 0.018570604
-Epoch : 0014, Cost : 0.016969218
+Epoch : 0000, Cost : 0.296692585
+Epoch : 0001, Cost : 0.105126909
+Epoch : 0002, Cost : 0.070916030
+Epoch : 0003, Cost : 0.054094118
+Epoch : 0004, Cost : 0.041283473
+Epoch : 0005, Cost : 0.035529787
+Epoch : 0006, Cost : 0.028978590
+Epoch : 0007, Cost : 0.025732956
+Epoch : 0008, Cost : 0.025104730
+Epoch : 0009, Cost : 0.018081026
+Epoch : 0010, Cost : 0.020960107
+Epoch : 0011, Cost : 0.017482232
+Epoch : 0012, Cost : 0.015934724
+Epoch : 0013, Cost : 0.016768658
+Epoch : 0014, Cost : 0.011958182
 Training finished ...
-Accuracy : 0.9788
-Actual label : [4]
-Predicted label : [4]
+Accuracy : 0.9787
+Actual label : [6]
+Predicted label : [6]
 """
