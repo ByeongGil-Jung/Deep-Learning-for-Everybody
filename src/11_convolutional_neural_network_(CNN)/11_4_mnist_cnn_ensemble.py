@@ -114,6 +114,7 @@ for m in range(num_models):
     model = MyMnistModel(sess=sess, name=("m" + str(m)))
     model.build_layers()
     model.build_model()
+
     model_list.append(model)
 
 sess.run(tf.global_variables_initializer())
