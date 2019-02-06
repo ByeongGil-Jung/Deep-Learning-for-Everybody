@@ -36,7 +36,7 @@ Y = tf.placeholder(tf.int32, shape=[None, sequence_length])
 
 # Layers
 # 1. RNN Layers
-cell = tf.contrib.rnn.BasicLSTMCell(num_units=hidden_size, state_is_tuple=True)  # RNN 로직의 엔진 역할
+cell = tf.nn.rnn_cell.BasicLSTMCell(num_units=hidden_size, state_is_tuple=True)  # RNN 로직의 엔진 역할
 initial_state = cell.zero_state(batch_size=batch_size, dtype=tf.float32)
 outputs, _states = tf.nn.dynamic_rnn(cell, X, initial_state=initial_state, dtype=tf.float32)  # RNN 을 run 시켜주는 driver 역할
 
