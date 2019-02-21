@@ -22,7 +22,7 @@ X = tf.placeholder(tf.float32, shape=[None, 2])
 Y = tf.placeholder(tf.float32, shape=[None, 1])
 
 # Making model
-with tf.name_scope("Layer1"):
+with tf.variable_scope("Layer1"):
     W1 = tf.Variable(tf.random_normal([2, 2]), name="weight1")
     b1 = tf.Variable(tf.random_normal([2]), name="bias1")
     layer1 = tf.sigmoid(tf.matmul(X, W1) + b1)
@@ -31,7 +31,7 @@ with tf.name_scope("Layer1"):
     tf.summary.histogram("b1", b1)
     tf.summary.histogram("Layer1", layer1)
 
-with tf.name_scope("Layer2"):
+with tf.variable_scope("Layer2"):
     W2 = tf.Variable(tf.random_normal([2, 1]), name="weight2")
     b2 = tf.Variable(tf.random_normal([1]), name="bias2")
     hypothesis = tf.sigmoid(tf.matmul(layer1, W2) + b2)
@@ -40,12 +40,12 @@ with tf.name_scope("Layer2"):
     tf.summary.histogram("b2", b2)
     tf.summary.histogram("Hypothesis", hypothesis)
 
-with tf.name_scope("Cost"):
+with tf.variable_scope("Cost"):
     cost = tf.negative(tf.reduce_mean((Y * tf.log(hypothesis)) + ((1 - Y) * tf.log(1 - hypothesis))))
 
     tf.summary.scalar("Cost", cost)
 
-with tf.name_scope("Optimizer"):
+with tf.variable_scope("Optimizer"):
     optimizer = tf.train.AdamOptimizer(learning_rate=lr).minimize(cost)
 
 # Computing accuracy
