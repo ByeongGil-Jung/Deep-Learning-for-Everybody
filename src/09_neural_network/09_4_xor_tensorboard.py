@@ -57,12 +57,13 @@ tf.summary.scalar("Accuracy", accuracy)
 
 # Launch
 with tf.Session() as sess:
+    sess.run(tf.global_variables_initializer())
+
+    # Init the tensorboard
     merged_summary = tf.summary.merge_all()
 
     writer = tf.summary.FileWriter("./logs/xor_logs")
     writer.add_graph(sess.graph)  # Show the graph
-
-    sess.run(tf.global_variables_initializer())
 
     # Training
     print("step | cost")
@@ -80,6 +81,7 @@ with tf.Session() as sess:
     print("Accuracy :", a)
 
 # tensorboard --logdir=./logs/xor_logs
+
 
 """
 step | cost
